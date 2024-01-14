@@ -1,0 +1,21 @@
+<div class="mb-4">
+  <%= form_with(url: movies_path, method: :get, local: true, class: "flex justify-center") do %>
+    <%= text_field_tag :query, params[:query], placeholder: "Search movies...", class: "shadow border rounded mr-2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+    <%= submit_tag "Search", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  <% end %>
+</div>
+
+<br/>
+
+<div class="container mx-auto px-4 flex flex-col gap-4">
+  <% @movies.each do |movie| %>
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2"><%= movie.name %></div>
+        <p class="text-gray-700 text-base">
+          <%= movie.description %>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
